@@ -97,6 +97,11 @@ function getImageJFXDependencies(array, source, callback) {
 	}
 	console.log("exit code: " + code);
 	fs.readdir (source, function (err, files) {
+	    if (err) {
+		console.log(err);
+		statusCode = 500;
+	    }
+	    
             if(files != null) {
 	    files.forEach( function (file) {
 		array.push(file);
